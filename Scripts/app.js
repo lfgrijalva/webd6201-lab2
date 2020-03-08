@@ -1,6 +1,6 @@
 /**
  * Lab 2 WEDB6201 - Client Side Scripting
- * Author: Luis Grijalva
+ * Author: Luis Grijalva 100719475
  * Date: 3/8/2020
  */
 
@@ -395,6 +395,23 @@ let name;
                 $("#errorMessage").append("Passwords do not match");
                 $("#errorMessage").append("<br/>");
             }
+
+            //Step 2h
+            //Create a user object
+            let userObject = new User();
+
+            //Populate the properties
+            userObject.firstName=firstName;
+            userObject.lastName = lastName;
+            userObject.email = email;
+            userObject.password = password;
+
+            //Display in console
+            console.log(userObject);
+
+            //Clear the form
+            $("#registerForm")[0].reset();
+            $("#errorMessage").hide();
         });
     }
 
