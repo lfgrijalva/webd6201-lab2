@@ -301,15 +301,10 @@ let name;
         //Step 2c
         //Create the submit event
         $("#registerForm").submit(function (e) { 
-            if(document.getElementById("registerForm").checkValidity() == false)
-            {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log("form not valid");
-            }
 
             //Reset error message text
             $("#errorMessage").text("");
+            $("#errorMessage").hide();
             //Get the values from the textboxes
             let firstName = $("#FirstName").val();
             let lastName = $("#lastName").val();
@@ -353,7 +348,19 @@ let name;
                 $("#errorMessage").append("<br/>");
             }
             
-            
+            //Step 2d
+            //Check for email string length
+            if (email == "" || email.length <8) {
+                $("#errorMessage").show();
+                $("#errorMessage").append("Email Address cannot be less than 8 characters");
+                $("#errorMessage").append("<br/>");
+            } 
+            //Check if email string contains the @ symbol            
+            if (!email.includes("@")) {
+                $("#errorMessage").show();
+                $("#errorMessage").append("\nEmail address must contain the @ symbol");
+                $("#errorMessage").append("<br/>");
+            }
         });
     }
 
