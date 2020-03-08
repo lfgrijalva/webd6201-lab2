@@ -294,6 +294,67 @@ let name;
     function DisplayRegisterContent()
     {
         document.title = "WEBD6201 - Register";
+        function validateInput(selector, condition, errorMessage)
+        {
+
+        }
+        //Step 2c
+        //Create the submit event
+        $("#registerForm").submit(function (e) { 
+            if(document.getElementById("registerForm").checkValidity() == false)
+            {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("form not valid");
+            }
+
+            //Reset error message text
+            $("#errorMessage").text("");
+            //Get the values from the textboxes
+            let firstName = $("#FirstName").val();
+            let lastName = $("#lastName").val();
+            let email = $("#emailAddress").val();
+            let password = $("#password").val();
+            let confirmPassword = $("#confirmPassword").val();
+
+            
+            //If empty
+            if (firstName != "") {
+                //If not empty, check length
+                if(firstName.length<2)
+                {
+                    //Show the error message and append an appropriate message
+                    $("#errorMessage").show();
+                    $("#errorMessage").append("\nFirst Name cannot be less than 2 characters");
+                    $("#errorMessage").append("<br/>");
+                }
+            }
+            else{
+                //Show the error message and append an appropriate message
+                $("#errorMessage").show();
+                $("#errorMessage").append("\nFirst Name cannot be empty\n");
+                $("#errorMessage").append("<br/>");
+            }
+            //If empty
+            if (lastName != "") {
+                //If not empty, check length
+                if(lastName.length<2)
+                {
+                    //Show the error message and append an appropriate message
+                    $("#errorMessage").show();
+                    $("#errorMessage").append("\nLast Name cannot be less than 2 characters\n");
+                    $("#errorMessage").append("<br/>");
+                }
+            }
+            else{
+                //Show the error message and append an appropriate message
+                $("#errorMessage").show();
+                $("#errorMessage").append("\nLast Name cannot be empty\n");
+                $("#errorMessage").append("<br/>");
+            }
+            
+            
+        });
     }
 
     /**
@@ -306,7 +367,7 @@ let name;
        //Create a div tag, hidden
        let errorMessage  = document.createElement("div");
        //Set the id
-       $(errorMessage).attr("id","ErrorMessage");
+       $(errorMessage).attr("id","errorMessage");
        //Change color of text to red
        $(errorMessage).css("color","red");
        //Hide it
