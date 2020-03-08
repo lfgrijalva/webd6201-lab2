@@ -292,7 +292,19 @@ let name;
      */
     function Main()
     {
-
+       //Step 2b
+       //Create a div tag, hidden
+       let errorMessage  = document.createElement("div");
+       //Set the id
+       $(errorMessage).attr("id","ErrorMessage");
+       //Change color of text to red
+       $(errorMessage).css("color","red");
+       //Hide it
+       $(errorMessage).hide();
+       //Get the element containing the text from the form
+       let formText = $("#registerForm").children()[0];
+       //Append if after
+       $(errorMessage).insertAfter(formText);
     }
     
     
