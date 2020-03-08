@@ -16,6 +16,20 @@ class Contact
     }
 }
 
+//Step 2g
+class User
+{
+    //Define the constructor and its properties
+    constructor(firstName = "",lastName="",userName = "", email = "", password="")
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+    }
+}
+
 
 
 
