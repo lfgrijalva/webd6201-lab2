@@ -1,3 +1,10 @@
+/**
+ * Lab 2 WEDB6201 - Client Side Scripting
+ * Author: Luis Grijalva
+ * Date: 3/8/2020
+ */
+
+
 class Contact
 {
     constructor(contactName = "", emailAddress = "", contactNumber = "", contactMessage = "")
@@ -17,6 +24,7 @@ class Contact
 // mean? -> anonymous self-executing function
 
 let app;
+let name;
 (function(app){
 
     // Declare Function Variables here...
@@ -244,12 +252,30 @@ let app;
 
         $("#loginForm").submit  ((e)=>
         {
-           
+            //Step 2a
             e.preventDefault();
             e.stopPropagation();
+            //Get text from textbox
+            name =$("#contactName").val();
+            //Get the last element of the navbar
+            let child = $("#navbarSupportedContent").children().children().last();
+            //Clone a navbar element and edit it
+            let nameElement = child.clone();
+            //Change text to whatever the textbox had
+            $(nameElement[0]).text("  "+name+"  ");
+            //Change id
+            $(nameElement[0]).attr("id","loggedIn");
+            //Change class for styling purposes
+            $(nameElement[0]).attr("class","navbar-text");
+            //Append it before last element of the navbar
+            $(nameElement[0]).insertBefore(child);
+            
+
             $("#loginForm")[0].reset();
             $("#login").hide();
             $("#logout").show();
+
+            
 
         });
 
@@ -266,7 +292,7 @@ let app;
      */
     function Main()
     {
-       
+
     }
     
     
