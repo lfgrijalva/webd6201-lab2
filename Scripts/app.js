@@ -301,6 +301,10 @@ let name;
         //Step 2c
         //Create the submit event
         $("#registerForm").submit(function (e) { 
+            //Step 2f
+            //Prevent default behaviour
+            e.preventDefault();
+            e.stopPropagation();
 
             //Reset error message text
             $("#errorMessage").text("");
