@@ -257,18 +257,28 @@ let name;
             e.stopPropagation();
             //Get text from textbox
             name =$("#contactName").val();
-            //Get the last element of the navbar
-            let child = $("#navbarSupportedContent").children().children().last();
-            //Clone a navbar element and edit it
-            let nameElement = child.clone();
-            //Change text to whatever the textbox had
-            $(nameElement[0]).text("  "+name+"  ");
-            //Change id
-            $(nameElement[0]).attr("id","loggedIn");
-            //Change class for styling purposes
-            $(nameElement[0]).attr("class","navbar-text");
-            //Append it before last element of the navbar
-            $(nameElement[0]).insertBefore(child);
+            console.log(name);
+            console.log($("#password").val());
+            
+            //If both textboxes contain something:
+            if ($("#password").val() != "" && name!=""){
+                //Get the last element of the navbar
+                let child = $("#navbarSupportedContent").children().children().last();
+                //Clone a navbar element and edit it
+                let nameElement = child.clone();
+                //Change text to whatever the textbox had
+                $(nameElement[0]).text("  "+name+"  ");
+                //Change id
+                $(nameElement[0]).attr("id","loggedIn");
+                //Change class for styling purposes
+                $(nameElement[0]).attr("class","navbar-text");
+                //Append it before last element of the navbar
+                $(nameElement[0]).insertBefore(child);
+            }
+            else{
+                console.log("A username and a password are needed");
+                
+            }
             
 
             $("#loginForm")[0].reset();
