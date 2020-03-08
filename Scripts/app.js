@@ -361,6 +361,22 @@ let name;
                 $("#errorMessage").append("\nEmail address must contain the @ symbol");
                 $("#errorMessage").append("<br/>");
             }
+
+            //Step 2e
+            //Check if strings are the same
+            if (password == confirmPassword) {
+                //If they are the same, check length
+                if (password.length<6) {
+                    $("#errorMessage").show();
+                    $("#errorMessage").append("Password cannot be less than 6 characters");
+                    $("#errorMessage").append("<br/>");
+                }
+            }
+            else{
+                $("#errorMessage").show();
+                $("#errorMessage").append("Passwords do not match");
+                $("#errorMessage").append("<br/>");
+            }
         });
     }
 
